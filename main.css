@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #EEEEEE;
+  border-bottom: 1px solid #DDDDDD;
+}
