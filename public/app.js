@@ -8,10 +8,7 @@
             
             });
           } else {
-            // User is signed out.
-            /*document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'null';*/
+           
           }
         }, function(error) {
           console.log(error);
@@ -22,13 +19,17 @@
   checkUserAuth();
 });
 
-  firebase.initializeApp(taAppConfig);
+firebase.initializeApp(taAppConfig);
 
-       var database = firebase.database();
+function initDB() {
+var database = firebase.database();
+return database;
+}
 
+var db = initDB();
 
-function writeUserData(author, message) {
-  var newMessageKey = firebase.database().ref().child('quotes').push().key;
+function writeUserData(author, message, db) {
+  var newMessageKey = db.ref().child('quotes').push().key;
 
   var quoteData = {
     author: author,
@@ -39,12 +40,15 @@ function writeUserData(author, message) {
   var updates = {};
   updates['/quotes/' + newMessageKey] = quoteData;
 
-  return firebase.database().ref().update(updates);
+  return db.ref().update(updates);
 };
 
-var ref = firebase.database().ref().child('quotes');
+writeUserData('Aristotle', 'I drank what??', db);
 
-ref.once('value', function(snapshot) {
+function doDisplayQuotes(db) {
+var ref = db.ref().child('quotes');
+
+ref.on('value', function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
     var author = childSnapshot.val().author;
     var message = childSnapshot.val().message;
@@ -53,3 +57,7 @@ ref.once('value', function(snapshot) {
     // ...
   });
 });
+
+}
+
+doDisplayQuotes(db);
