@@ -36,22 +36,20 @@ function writeUserData(author, message) {
     timestamp : new Date().getTime()
   };
 
-
   var updates = {};
   updates['/quotes/' + newMessageKey] = quoteData;
 
   return firebase.database().ref().update(updates);
 };
 
-writeUserData('jeff', 'once upon a time');
+var ref = firebase.database().ref().child('quotes');
 
+ref.once('value', function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+    var author = childSnapshot.val().author;
+    var message = childSnapshot.val().message;
+    console.log(message + ":" + author);
 
-var rootRef = firebase.database().ref();
-var rootUrl = rootRef.toString();
-
-console.log(rootRef + ":" + rootUrl);
-
-var dbRef = rootRef.child('quotes/id1');
-var dbURL = dbRef.toString();
-
-console.log(dbRef + ":" + dbURL);
+    // ...
+  });
+});
