@@ -1,37 +1,40 @@
-var divTemplate = '<div class="quote-div"/></div>';
 var pQuoteTemplate = '<p class="the-quote"></p>';
 var pAuthTemplate = '<p class="quote-author"></p>';
 var timeTemplate = '<p class="quote-time"></p>';
 
-
-function checkUserAuth() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+     function checkUserAuth() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            
             user.getIdToken().then(function(accessToken) {
-                document.getElementById('sign-in-status').textContent = 'Signed in';
-                document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+            
             });
-        } else {
-        }
-    }, function(error) {
-        console.log(error);
-    });
-};
+          } else {
+           
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
 
-$(window).on('load', function() {
-    checkUserAuth();
+     $(window).on('load', function() {
+  checkUserAuth();
 });
 
-//firebase.initializeApp(taAppConfig);
+firebase.initializeApp(taAppConfig);
 
 function initDB() {
-  var database = firebase.database().ref().child('quotes');
-  return database;
+var database = firebase.database();
+return database;
 }
 
+var db = initDB();
+
 function writeUserData(author, message, db) {
-  //var newMessageKey = db.ref().child('quotes').push().key;
-  var newMessageKey = db.push().key;
+  var newMessageKey = db.ref().child('quotes').push().key;
+
   var quoteData = {
     author: author,
     message: message,
@@ -45,6 +48,23 @@ function writeUserData(author, message, db) {
 };
 
 //writeUserData('Aristotle', 'I drank what??', db);
+/*
+function doDisplayQuotes(db) {
+var ref = db.ref().child('quotes');
+
+ref.on('value', function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+    var author = childSnapshot.val().author;
+    var message = childSnapshot.val().message;
+    console.log(message + ":" + author);
+
+    // ...
+  });
+});
+
+}*/
+
+//doDisplayQuotes(db);
 
 function doDisplayQuotes(db) {
 //var ref = db.ref().child('quotes');
@@ -56,21 +76,14 @@ ref.once('value', function(snapshot) {
     var author = childSnapshot.val().author;
     var message = childSnapshot.val().message;
     var timestamp = childSnapshot.val().timestamp;
-    //quoteObject.message = message;
-    //quoteObject.author = author;
-    //quotes.push(quoteObject);
-    //console.log(message + ":" + author);
-
-    // ...
+    
   });
 });
 
 }
 var db = initDB();
-var quotes = [];
 
-doDisplayQuotes(db);
-
+//doDisplayQuotes(db);
 
 /*function()  {
 $("#slideshow > div:gt(0)").hide();

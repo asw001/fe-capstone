@@ -24,16 +24,15 @@
     <div class="col-6">
       <div id="slideshow"></div> 
     </div>
-  </div>
 
-  <div class="row">
     <div class="col-3">
       <div id="quote-submit">
         <form id="quote-form" role="form" accept-charset="UTF-8">
           <label for="quote-text">Enter Quote</label>
-          <input type="textarea" placeholder="E Pluribus Unum" name="quote-text" id="quote-text" required/>
+          <textarea id="quote-text" placeholder="500 characters maximum"
+           rows="10" cols="70" required wrap="hard"></textarea>
           <label for="quote-author">Author</label>
-          <input placeholder="John Adams" type="text" name="quote-author" id="quote-author" required/>
+          <input placeholder="John Adams" type="text" name="quote-author" id="quote-author" required maxlength=25/>
           <button type="submit">Enter</button>
         </form>
       </div>
@@ -47,7 +46,6 @@
 
   <div id="sign-in-status"></div>
   <div id="sign-in"></div>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
   <script type="text/javascript" src="scripts/config.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>

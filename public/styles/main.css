@@ -17,10 +17,18 @@
 
 #quote-form {
   width: 200px;
-  padding: 40px;
+  padding: 10px;
   border-radius: 3px;
   background: white;
   margin: 0 auto;
+}
+
+#quote-text {
+  width: 150px;
+  height: 150px;
+  vertical-align: top;
+  resize: none;
+
 }
 
 button[type="submit"] {
