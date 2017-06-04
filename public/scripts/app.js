@@ -1,6 +1,3 @@
-var pQuoteTemplate = '<p class="the-quote"></p>';
-var pAuthTemplate = '<p class="quote-author"></p>';
-var timeTemplate = '<p class="quote-time"></p>';
 
      function checkUserAuth() {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -66,16 +63,32 @@ ref.on('value', function(snapshot) {
 
 //doDisplayQuotes(db);
 
-function doDisplayQuotes(db) {
+function renderQuotes(renderConfig) {
+var elemQuoteDiv = $(renderConfig.quoteDivTemplate);
+var elemAuthor = $(renderConfig.authorTemplate);
+var elemSlide = $(renderConfig.slideDiv);
+var elemSlideChild = $(renderConfig.slideChildDiv);
+
+elemQuoteDiv.append(renderConfig.message);
+elemAuthor.append(renderConfig.author);
+elemSlideChild.append(elemQuoteDiv);
+elemSlideChild.append(elemAuthor);
+elemSlide.append(elemSlideChild);
+
+};
+
+function doDisplayQuotes(db, renderConfig) {
 //var ref = db.ref().child('quotes');
 var ref = db;
 
 ref.once('value', function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
-    var quoteObject = {};
-    var author = childSnapshot.val().author;
-    var message = childSnapshot.val().message;
-    var timestamp = childSnapshot.val().timestamp;
+    //var quoteObject = {};
+    //var author = childSnapshot.val().author;
+    //var message = childSnapshot.val().message;
+    /*var timestamp = childSnapshot.val().timestamp;*/
+    renderConfig.message = childSnapshot.val().message;
+    renderConfig.author = childSnapshot.val().author;
     
   });
 });
