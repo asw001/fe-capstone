@@ -127,11 +127,13 @@ function handleSubmit() {
   hideQuoteErrorInput();
   hideSubmitSuccess();
 
-    /*$('#quote-form').on('submit', (function(e) {*/
-      $('#quote-form').submit(function(e) {
+    $('#quote-form').on('submit', (function(e) {
+    /*  $('#quote-form').submit(function(e) {*/
         e.preventDefault();
         var quote = $(this).find('#quote-text').val();
         var author = $(this).find('#quote-author').val();
+        quote = quote.replace(/[\n\r]+/g, ' ');
+        author = author.replace(/[\n\r]+/g, ' ');
         console.log(quote + " : " + author);
         if (quote.length > 500) {
         showQuoteErrorInput(); 
@@ -139,12 +141,12 @@ function handleSubmit() {
         else { 
         writeUserData(quote, author, db);
         $(this).find('#quote-text').val('');
-        $(this).find('#quote-author').('');
+        $(this).find('#quote-author').val('');
         hideQuoteErrorInput();
         showSubmitSuccess();
         }
         
-    });
+    }));
 };
 
 
