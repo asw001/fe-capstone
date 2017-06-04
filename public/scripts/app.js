@@ -1,3 +1,9 @@
+var divTemplate = '<div class="quote-div"/></div>';
+var pQuoteTemplate = '<p class="the-quote"></p>';
+var pAuthTemplate = '<p class="quote-author"></p>';
+var timeTemplate = '<p class="quote-time"></p>';
+
+
 function checkUserAuth() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -23,8 +29,6 @@ function initDB() {
   return database;
 }
 
-
-
 function writeUserData(author, message, db) {
   //var newMessageKey = db.ref().child('quotes').push().key;
   var newMessageKey = db.push().key;
@@ -42,9 +46,6 @@ function writeUserData(author, message, db) {
 
 //writeUserData('Aristotle', 'I drank what??', db);
 
-
-
-
 function doDisplayQuotes(db) {
 //var ref = db.ref().child('quotes');
 var ref = db;
@@ -54,10 +55,11 @@ ref.once('value', function(snapshot) {
     var quoteObject = {};
     var author = childSnapshot.val().author;
     var message = childSnapshot.val().message;
-    quoteObject.message = message;
-    quoteObject.author = author;
-    quotes.push(quoteObject);
-    console.log(message + ":" + author);
+    var timestamp = childSnapshot.val().timestamp;
+    //quoteObject.message = message;
+    //quoteObject.author = author;
+    //quotes.push(quoteObject);
+    //console.log(message + ":" + author);
 
     // ...
   });
@@ -70,7 +72,7 @@ var quotes = [];
 doDisplayQuotes(db);
 
 
-
+function()  {
 $("#slideshow > div:gt(0)").hide();
 
 setInterval(function() {
@@ -81,3 +83,4 @@ setInterval(function() {
     .end()
     .appendTo('#slideshow');
 }, 3000);
+}
