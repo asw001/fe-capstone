@@ -97,3 +97,15 @@ setInterval(function() {
     .appendTo('#slideshow');
 }, 3000);
 }*/
+
+function handleSubmit() {
+    $('#quote-form').on('submit', (function(e) {
+        e.preventDefault();
+        var quote = $(this).find('#quote-text').val();
+        var author = $(this).find('#quote-author').val();
+        console.log(quote + " : " + author);
+    }));
+};
+
+
+handleSubmit();
