@@ -104,7 +104,12 @@ function handleSubmit() {
         var quote = $(this).find('#quote-text').val();
         var author = $(this).find('#quote-author').val();
         console.log(quote + " : " + author);
+        if (quote.length > 500) {
+        alert("Sorry, message is limited to 500 character. Please try again");
+        }
+        else { 
         writeUserData(quote, author, db);
+      }
     }));
 };
 
