@@ -34,7 +34,7 @@ var db = initDB();
 
 function writeUserData(author, message, db) {
   var newMessageKey = db.ref().child('quotes').push().key;
-
+  //var newMessageKey = db.push().key;
   var quoteData = {
     author: author,
     message: message,
@@ -104,6 +104,7 @@ function handleSubmit() {
         var quote = $(this).find('#quote-text').val();
         var author = $(this).find('#quote-author').val();
         console.log(quote + " : " + author);
+        writeUserData(quote, author, db);
     }));
 };
 
