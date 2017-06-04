@@ -30,12 +30,13 @@
         <form id="quote-form" role="form" accept-charset="UTF-8" action="#">
           <label for="quote-text">Enter Quote</label>
           <textarea id="quote-text" placeholder="500 characters maximum"
-           rows="10" cols="70" required wrap="hard"></textarea>
+           rows="10" cols="70" required wrap="soft"></textarea>
           <label for="quote-author">Author</label>
-          <input placeholder="John Adams" type="text" name="quote-author" id="quote-author" required maxlength=25/>
+          <input placeholder="John Adams" type="text" name="quote-author" id="quote-author" required maxlength=30/>
           <button type="submit">Enter</button>
         </form>
-      </div>
+        <div class="error-quote-submit"><p>Quotes are limited to 500 characters. Please try again</p></div>
+        <div class="submit-success"><p>You're quote was successfully submitted. Thank you</p></div>
     </div>
   </div>
 

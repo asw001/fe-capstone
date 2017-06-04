@@ -43,3 +43,14 @@ button[type="submit"] {
   margin-bottom: 0;
   
 }
+
+.hidden-error {
+display: none;
+visibility: hidden;
+}
+
+/*.show-error {
+display: block;
+visibility: visible;
+
+}*/

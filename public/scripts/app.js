@@ -98,19 +98,53 @@ setInterval(function() {
 }, 3000);
 }*/
 
+/*function hideAuthorErrorInput() {
+$('div.error-author-submit').hide();
+   }*/
+
+/*function showAuthorErrorInput() {
+$('div.error-author-submit').show();
+   }*/
+
+function hideQuoteErrorInput() {
+$('div.error-quote-submit').hide();
+  }
+
+function showQuoteErrorInput() {
+$('div.error-quote-submit').show();
+  }
+
+function hideSubmitSuccess() {
+$('div.submit-success').hide();
+}  
+
+function showSubmitSuccess() {
+$('div.submit-success').show();
+}
+
+
 function handleSubmit() {
-    $('#quote-form').on('submit', (function(e) {
+  hideQuoteErrorInput();
+  hideSubmitSuccess();
+
+    /*$('#quote-form').on('submit', (function(e) {*/
+      $('#quote-form').submit(function(e) {
         e.preventDefault();
         var quote = $(this).find('#quote-text').val();
         var author = $(this).find('#quote-author').val();
         console.log(quote + " : " + author);
         if (quote.length > 500) {
-        alert("Sorry, message is limited to 500 character. Please try again");
+        showQuoteErrorInput(); 
         }
         else { 
         writeUserData(quote, author, db);
-      }
-    }));
+        $(this).find('#quote-text').val('');
+        $(this).find('#quote-author').('');
+        hideQuoteErrorInput();
+        showSubmitSuccess();
+        }
+        
+    });
 };
 
 
