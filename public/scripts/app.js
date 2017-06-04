@@ -82,7 +82,8 @@ function renderQuotes(renderConfig) {
 function doDisplayQuotes(db, renderConfig) {
     var ref = db.ref().child('quotes');
     //var ref = db;
-
+    $(renderConfig.slideDiv).empty();
+    //$('div#slideshow').empty();
     ref.once('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
             //var quoteObject = {};
@@ -158,6 +159,7 @@ function handleSubmit() {
             $(this).find('#quote-author').val('');
             hideQuoteErrorInput();
             showSubmitSuccess();
+            doDisplayQuotes(db, renderConfig);
         }
 
     }));
