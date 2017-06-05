@@ -6,13 +6,11 @@ body {
   font-family: "Roboto", helvetica, sans-serif;
 }
 
-.container1 {
-/*background: url(/images/wall-of-text1.jpg) no-repeat; 
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-  text-align: center;
+
+.wall-img {
+
+width: 160px;
+height: 160px;
 }
 
 .container2 {
