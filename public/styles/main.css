@@ -2,22 +2,33 @@ h1 {
   text-align: center;
 }
 
-body {
+/*.head {
+
+  margin-bottom: 20px;
+}*/
+
+html {
   font-family: "Roboto", helvetica, sans-serif;
+  background: url(/images/wall-of-text12.jpg) no-repeat; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }
 
 
 .wall-img {
 
-width: 160px;
-height: 160px;
+width: 200px;
+height: 200px;
 }
 
 .container2 {
 background: url(/images/wall-of-text2.jpg) no-repeat; 
-  /*-webkit-background-size: cover;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;*/
+  -o-background-size: cover;
   background-size: cover;
 }
 
