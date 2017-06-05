@@ -30,7 +30,6 @@ var db = initDB();
 
 function writeUserData(quote, author, db) {
     var newQuoteKey = db.ref().child('quotes').push().key;
-    //var newMessageKey = db.push().key;
     var quoteData = {
         quote: quote,
         author: author,
@@ -111,7 +110,7 @@ function handleSubmit() {
         quote = quote.replace(/[\n\r]+/g, ' ');
         author = author.replace(/[\n\r]+/g, ' ');
         console.log(quote + " : " + author);
-        if (quote.length > 500) {
+        if (quote.length > 1000) {
             showQuoteErrorInput();
         } else {
             writeUserData(quote, author, db);
@@ -136,7 +135,7 @@ setInterval(function() {
     .fadeIn(1000)
     .end()
     .appendTo('#slideshow');
-}, 3000);
+}, 5000);
 };
 
 doDisplayQuotes(db, renderConfig);

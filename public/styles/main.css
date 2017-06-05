@@ -1,3 +1,11 @@
+h1 {
+  text-align: center;
+}
+
+body {
+  font-family: "Roboto", helvetica, sans-serif;
+}
+
 #slideshow {
   margin: 30px auto;
   position: relative;
@@ -15,6 +23,14 @@
   bottom: 10px;
 }
 
+#quote-submit {
+  margin-top: 15px;
+  text-align: center;
+  font-family: "Roboto", helvetica, sans-serif;
+  font-weight: 300;
+
+}
+
 #quote-form {
   width: 200px;
   padding: 10px;
@@ -28,8 +44,8 @@
   height: 150px;
   vertical-align: top;
   resize: none;
-
 }
+
 
 button[type="submit"] {
   height: auto;
@@ -41,7 +57,6 @@ button[type="submit"] {
   border: 0;
   cursor: pointer;
   margin-bottom: 0;
-  
 }
 
 .hidden-error {
@@ -49,8 +64,11 @@ display: none;
 visibility: hidden;
 }
 
-/*.show-error {
-display: block;
-visibility: visible;
+.quote-container {
+position: relative;
+}
 
-}*/
+.signature {
+position: absolute;
+margin-top: 30px;
+}
