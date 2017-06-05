@@ -28,7 +28,7 @@ function initDB() {
 
 var db = initDB();
 
-function writeUserData(author, message, db) {
+function writeUserData(message, author, db) {
     var newMessageKey = db.ref().child('quotes').push().key;
     //var newMessageKey = db.push().key;
     var quoteData = {
@@ -75,6 +75,8 @@ function renderQuotes(renderConfig) {
     elemAuthor.append(renderConfig.author);
     elemSlideChild.append(elemQuoteDiv);
     elemSlideChild.append(elemAuthor);
+    //elemSlideChild.append(elemAuthor);
+    //elemSlideChild.append(elemQuoteDiv);
     elemSlide.append(elemSlideChild);
 
 };
@@ -146,6 +148,7 @@ function handleSubmit() {
     $('#quote-form').on('submit', (function(e) {
         /*  $('#quote-form').submit(function(e) {*/
         e.preventDefault();
+        e.stopPropagation();
         var quote = $(this).find('#quote-text').val();
         var author = $(this).find('#quote-author').val();
         quote = quote.replace(/[\n\r]+/g, ' ');
