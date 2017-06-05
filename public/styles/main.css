@@ -39,6 +39,10 @@ body {
   margin: 0 auto;
 }
 
+.quote-author {
+  margin-top: 10px;
+}
+
 #quote-text {
   width: 150px;
   height: 150px;
@@ -57,6 +61,7 @@ button[type="submit"] {
   border: 0;
   cursor: pointer;
   margin-bottom: 0;
+  margin-top: 10px;
 }
 
 .hidden-error {

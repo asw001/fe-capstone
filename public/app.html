@@ -13,6 +13,8 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/main.css"/>
   <link rel="stylesheet" type="text/css" href="styles/grid.css"/>
 </head>
@@ -29,10 +31,12 @@
       <div id="quote-submit">
         <form id="quote-form" role="form" accept-charset="UTF-8" action="#">
           <label for="quote-text">Enter Quote</label>
-          <textarea id="quote-text" placeholder="500 characters maximum"
+          <textarea id="quote-text" placeholder="1000 characters maximum"
            rows="10" cols="70" required wrap="soft"></textarea>
-          <label for="quote-author">Author</label>
-          <input placeholder="John Adams" type="text" name="quote-author" id="quote-author" required maxlength=30/>
+          <div class="quote-author">
+            <label for="quote-author">Author</label>
+            <input placeholder="John Adams" type="text" name="quote-author" id="quote-author" required maxlength=30/>
+          </div>
           <button type="submit">Enter</button>
         </form>
         <div class="error-quote-submit"><p>Quotes are limited to 500 characters. Please try again</p></div>
