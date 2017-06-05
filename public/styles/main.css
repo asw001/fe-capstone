@@ -4,6 +4,15 @@ h1 {
 
 body {
   font-family: "Roboto", helvetica, sans-serif;
+  
+}
+
+.container {
+background: url(images/wall-of-text1.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #slideshow {
