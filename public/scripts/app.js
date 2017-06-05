@@ -28,71 +28,50 @@ function initDB() {
 
 var db = initDB();
 
-function writeUserData(message, author, db) {
-    var newMessageKey = db.ref().child('quotes').push().key;
+function writeUserData(quote, author, db) {
+    var newQuoteKey = db.ref().child('quotes').push().key;
     //var newMessageKey = db.push().key;
     var quoteData = {
+        quote: quote,
         author: author,
-        message: message,
-        timestamp: new Date().getTime()
+        timestamp: new Date().getTime(),
     };
 
     var updates = {};
-    updates['/quotes/' + newMessageKey] = quoteData;
+    updates['/quotes/' + newQuoteKey] = quoteData;
 
     return db.ref().update(updates);
 };
 
-//writeUserData('Aristotle', 'I drank what??', db);
-/*
-function doDisplayQuotes(db) {
-var ref = db.ref().child('quotes');
-
-ref.on('value', function(snapshot) {
-  snapshot.forEach(function(childSnapshot) {
-    var author = childSnapshot.val().author;
-    var message = childSnapshot.val().message;
-    console.log(message + ":" + author);
-
-    // ...
-  });
-});
-
-}*/
-
-//doDisplayQuotes(db);
-
 var db = initDB();
-
 
 function renderQuotes(renderConfig) {
     var elemQuoteDiv = $(renderConfig.quoteDivTemplate);
     var elemAuthor = $(renderConfig.authorTemplate);
     var elemSlide = $(renderConfig.slideDiv);
     var elemSlideChild = $(renderConfig.slideChildDiv);
+    renderConfig.author = '-- ' + renderConfig.author;
 
-    elemQuoteDiv.append(renderConfig.message);
+    elemQuoteDiv.append(renderConfig.quote);
     elemAuthor.append(renderConfig.author);
     elemSlideChild.append(elemQuoteDiv);
     elemSlideChild.append(elemAuthor);
-    //elemSlideChild.append(elemAuthor);
-    //elemSlideChild.append(elemQuoteDiv);
     elemSlide.append(elemSlideChild);
-
 };
 
 function doDisplayQuotes(db, renderConfig) {
     var ref = db.ref().child('quotes');
     //var ref = db;
-    $(renderConfig.slideDiv).empty();
-    //$('div#slideshow').empty();
+    //$(renderConfig.slideDiv).empty();
+    $('div#slideshow').empty();
+
     ref.once('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
             //var quoteObject = {};
             //var author = childSnapshot.val().author;
             //var message = childSnapshot.val().message;
             /*var timestamp = childSnapshot.val().timestamp;*/
-            renderConfig.message = childSnapshot.val().message;
+            renderConfig.quote = childSnapshot.val().quote;
             renderConfig.author = childSnapshot.val().author;
 
             renderQuotes(renderConfig);
@@ -101,28 +80,6 @@ function doDisplayQuotes(db, renderConfig) {
     });
 
 }
-
-
-/*function()  {
-$("#slideshow > div:gt(0)").hide();
-
-setInterval(function() {
-  $('#slideshow > div:first')
-    .fadeOut(1000)
-    .next()
-    .fadeIn(1000)
-    .end()
-    .appendTo('#slideshow');
-}, 3000);
-}*/
-
-/*function hideAuthorErrorInput() {
-$('div.error-author-submit').hide();
-   }*/
-
-/*function showAuthorErrorInput() {
-$('div.error-author-submit').show();
-   }*/
 
 function hideQuoteErrorInput() {
     $('div.error-quote-submit').hide();
