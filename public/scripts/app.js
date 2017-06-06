@@ -105,6 +105,7 @@ function handleFormReveal() {
   $("#form-access").on('click', 'span', function(event) {
     event.stopPropagation();
     showSubmitForm();
+    hideFormAccess();
   });
 };
 
@@ -129,7 +130,7 @@ function handleSubmit() {
             showSubmitSuccess();
             doDisplayQuotes(db, renderConfig);
             hideSubmitForm();
-            hideFormAccess();
+            //hideFormAccess();
         }
     }));
 };
