@@ -13,26 +13,6 @@ html {
 
 }
 
-
-.wall-img {
-
-width: 200px;
-height: 200px;
-}
-
-/*.container2 {
-background: url(/images/wall-of-text2.jpg) no-repeat; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-
-/*.container2 {
-  background-color: transparent #f5f5dc;
-  border: 2px solid black;
-}*/
-
 #slideshow {
   margin: 30px auto;
   position: relative;
@@ -48,6 +28,12 @@ background: url(/images/wall-of-text2.jpg) no-repeat;
   left: 10px;
   right: 10px;
   bottom: 10px;
+  color: white;
+}
+
+#form-access {
+
+  font-size: large;
   color: white;
 }
 

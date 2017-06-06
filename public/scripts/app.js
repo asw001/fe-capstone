@@ -89,21 +89,37 @@ function showSubmitSuccess() {
     $('div.submit-success').show();
 }
 
+function showSubmitForm() {
+    $('#quote-submit').show();
+}
+
+function hideSubmitForm() {
+    $('#quote-submit').hide();
+}
+
+function hideFormAccess() {
+    $('#form-access').hide();
+}
+
+function() handleFormReveal() {
+  $("#form-access").on('click', 'span', function(event) {
+    event.stopPropagation();
+    showSubmitForm();
+  });
+};
 
 function handleSubmit() {
     hideQuoteErrorInput();
     hideSubmitSuccess();
-
-    $('#quote-form').on('submit', (function(e) {
-        /*  $('#quote-form').submit(function(e) {*/
-        e.preventDefault();
-        e.stopPropagation();
+    $('#quote-form').on('submit', (function(event) {
+        event.preventDefault();
+        event.stopPropagation();
         var quote = $(this).find('#quote-text').val();
         var author = $(this).find('#quote-author').val();
         quote = quote.replace(/[\n\r]+/g, ' ');
         author = author.replace(/[\n\r]+/g, ' ');
-        console.log(quote + " : " + author);
-        if (quote.length > 500) {
+
+        if (quote.length > 800) {
             showQuoteErrorInput();
         } else {
             writeUserData(quote, author, db);
@@ -113,13 +129,11 @@ function handleSubmit() {
             showSubmitSuccess();
             doDisplayQuotes(db, renderConfig);
         }
-
     }));
 };
 
 
 function doSlideShow() {
-//$("#slideshow > div:gt(0)").hide();
   $("#slideshow > div:first").show();
 
 setInterval(function() {
@@ -129,7 +143,7 @@ setInterval(function() {
     .fadeIn(1000)
     .end()
     .appendTo('#slideshow');
-}, 5000);
+}, 6000);
 };
 
 doDisplayQuotes(db, renderConfig);
