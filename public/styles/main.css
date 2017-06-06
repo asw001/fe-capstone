@@ -2,10 +2,6 @@ h1 {
   text-align: center;
 }
 
-/*.head {
-
-  margin-bottom: 20px;
-}*/
 
 html {
   font-family: "Roboto", helvetica, sans-serif;
@@ -24,21 +20,26 @@ width: 200px;
 height: 200px;
 }
 
-.container2 {
+/*.container2 {
 background: url(/images/wall-of-text2.jpg) no-repeat; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+}*/
+
+/*.container2 {
+  background-color: transparent #f5f5dc;
+  border: 2px solid black;
+}*/
 
 #slideshow {
   margin: 30px auto;
   position: relative;
   width: 440px;
-  height: 440px;
+  height: 240px;
   padding: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);*/
 }
 
 #slideshow > div {
@@ -47,6 +48,7 @@ background: url(/images/wall-of-text2.jpg) no-repeat;
   left: 10px;
   right: 10px;
   bottom: 10px;
+  color: white;
 }
 
 #quote-submit {

@@ -66,18 +66,11 @@ function doDisplayQuotes(db, renderConfig) {
 
     ref.once('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
-            //var quoteObject = {};
-            //var author = childSnapshot.val().author;
-            //var message = childSnapshot.val().message;
-            /*var timestamp = childSnapshot.val().timestamp;*/
             renderConfig.quote = childSnapshot.val().quote;
             renderConfig.author = childSnapshot.val().author;
-
             renderQuotes(renderConfig);
-
         });
     });
-
 }
 
 function hideQuoteErrorInput() {
@@ -110,7 +103,7 @@ function handleSubmit() {
         quote = quote.replace(/[\n\r]+/g, ' ');
         author = author.replace(/[\n\r]+/g, ' ');
         console.log(quote + " : " + author);
-        if (quote.length > 1000) {
+        if (quote.length > 500) {
             showQuoteErrorInput();
         } else {
             writeUserData(quote, author, db);
