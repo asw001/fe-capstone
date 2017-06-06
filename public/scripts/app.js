@@ -101,7 +101,7 @@ function hideFormAccess() {
     $('#form-access').hide();
 }
 
-function() handleFormReveal() {
+function handleFormReveal() {
   $("#form-access").on('click', 'span', function(event) {
     event.stopPropagation();
     showSubmitForm();
@@ -128,10 +128,11 @@ function handleSubmit() {
             hideQuoteErrorInput();
             showSubmitSuccess();
             doDisplayQuotes(db, renderConfig);
+            hideSubmitForm();
+            hideFormAccess();
         }
     }));
 };
-
 
 function doSlideShow() {
   $("#slideshow > div:first").show();
@@ -146,6 +147,8 @@ setInterval(function() {
 }, 6000);
 };
 
+hideSubmitForm();
+handleFormReveal();
 doDisplayQuotes(db, renderConfig);
 doSlideShow();
 handleSubmit();
