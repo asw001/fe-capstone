@@ -119,7 +119,8 @@ function handleSubmit() {
 
 
 function doSlideShow() {
-$("#slideshow > div:gt(0)").hide();
+//$("#slideshow > div:gt(0)").hide();
+  $("#slideshow > div:first").show();
 
 setInterval(function() {
   $('#slideshow > div:first')

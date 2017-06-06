@@ -10,7 +10,7 @@ renderConfig = {
   //authorTemplate: '<p class="quote-author"></p>',
   authorTemplate: '<div class="signature"></div>',
   slideDiv: 'div#slideshow',
-  slideChildDiv: '<div></div>',
+  slideChildDiv: '<div style="display: none"></div>',
 }
 
 //myTimeWait = 5000;
