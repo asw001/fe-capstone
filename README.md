@@ -4,10 +4,10 @@
 
 # Table of Contents
 
-Introduction
-How It Works
-API Documentation
-Development
+- Introduction
+- How It Works
+- API Documentation
+- Development
 
 
 ## Introduction
@@ -35,7 +35,7 @@ Documentation for Firebase an be found at following links
 - [Realtime Database]
 - [Authentication]
 
-
+## Development
 
 
 
