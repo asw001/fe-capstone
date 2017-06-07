@@ -1,3 +1,5 @@
+
+//DOM manipulation functions
 function hideQuoteErrorInput() {
     $('div.error-quote-submit').hide();
 }
@@ -34,6 +36,8 @@ function handleFormReveal() {
   });
 };
 
+//calls Firebase library to verify user auth
+//displays status on page, logs auth errors to console. https://github.com/firebase/firebaseui-web
 function checkUserAuth() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -41,34 +45,33 @@ function checkUserAuth() {
                 document.getElementById('sign-in-status').textContent = 'Signed in';
             });
         } else {
-
+                document.getElementById('sign-in-status').textContent = 'Not signed in';
         }
     }, function(error) {
         console.log(error);
     });
 };
 
-
+//instantiates the database object
 function initDB() {
     var database = firebase.database();
     return database;
 };
 
 function writeUserData(quote, author, db) {
-    var newQuoteKey = db.ref().child('quotes').push().key;
-    var quoteData = {
+    var newQuoteKey = db.ref().child('quotes').push().key; //get a UUID for the database record
+    var quoteData = {                                        
         quote: quote,
         author: author,
         timestamp: new Date().getTime(),
     };
-
     var updates = {};
     updates['/quotes/' + newQuoteKey] = quoteData;
 
-    return db.ref().update(updates);
+    return db.ref().update(updates); //returns a promise; otherwise need error handling here
 };
 
-function renderQuotes(renderConfig) {
+function renderQuotes(renderConfig) { //renderConfig stored in config.js
     var elemQuoteDiv = $(renderConfig.quoteDivTemplate);
     var elemAuthor = $(renderConfig.authorTemplate);
     var elemSlide = $(renderConfig.slideDiv);
@@ -84,11 +87,11 @@ function renderQuotes(renderConfig) {
 
 function doDisplayQuotes(db, renderConfig) {
     var ref = db.ref().child('quotes');
-    $('div#slideshow').empty();
+    $('div#slideshow').empty(); //if we don't empty the parents div, duplicate child entries will be created
 
-    ref.once('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            renderConfig.quote = childSnapshot.val().quote;
+    ref.once('value', function(snapshot) { //the once method creates a connection to db, then removes listener; this
+        snapshot.forEach(function(childSnapshot) { //essentially disables the realtime capability of the DB
+            renderConfig.quote = childSnapshot.val().quote; //https://firebase.google.com/docs/database/web/read-and-write
             renderConfig.author = childSnapshot.val().author;
             renderQuotes(renderConfig);
         });
@@ -114,16 +117,16 @@ function handleSubmit() {
             $(this).find('#quote-author').val('');
             hideQuoteErrorInput();
             showSubmitSuccess();
-            doDisplayQuotes(db, renderConfig);
+            doDisplayQuotes(db, renderConfig);//rebuild the quotes in parent DIV
             hideSubmitForm();
         }
     }));
 };
 
 function doSlideShow() {
-    $("#slideshow > div:first").show();
-
-    setInterval(function() {
+    $("#slideshow > div:first").show(); //ensures that, in conjunction with child divs being created
+                                        //with display none, the child divs are not all rendered at once
+    setInterval(function() {            //on top of one another
         $('#slideshow > div:first')
             .fadeOut(1000)
             .next()
