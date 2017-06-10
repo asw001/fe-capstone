@@ -12,7 +12,7 @@
 
 ## Introduction
 
-Wall of Text is capstone project for Thinkful.com's front-end developer component of the fullstack developer course. The intention is to (of course) synthesize skills previously acquired in the course, while emphasizing proficiency in learning new APIs.
+[Wall of Text] is capstone project for Thinkful.com's front-end developer component of the fullstack developer course. The intention is to (of course) synthesize skills previously acquired in the course, while emphasizing proficiency in learning new APIs.
 
 - web essenstials (HTML, CSS, JS) 
 - JQuery
@@ -38,7 +38,7 @@ Documentation for Firebase an be found at following links
 ## Development
 
 
-
+[Wall of Text]: <https://thinkful-fe-cs-asw.firebaseapp.com>
 [Get Started for Web (JS)]: <https://firebase.google.com/docs/web/setup>
 [Hosting]: <https://firebase.google.com/docs/hosting/>
 [Realtime Database]: <https://firebase.google.com/docs/database/web/start>
