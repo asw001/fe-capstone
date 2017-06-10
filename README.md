@@ -1,6 +1,6 @@
 # Wall of Quotes
 
-[<img src="https://github.com/asw001/fe-capstone/blob/master/public/images/snap1.png">](https://github.com)
+[<img src="https://github.com/asw001/fe-capstone/blob/master/public/images/snap2.png">](https://github.com)
 
 # Table of Contents
 
@@ -13,6 +13,8 @@
 ## Introduction
 
 [Wall of Quotes] is capstone project for Thinkful.com's front-end developer component of the fullstack developer course. The intention is to (of course) synthesize skills previously acquired in the course, while emphasizing proficiency in learning new APIs.
+
+Wall of Quotes is built on the following technologies:
 
 - web essenstials (HTML, CSS, JS) 
 - JQuery
