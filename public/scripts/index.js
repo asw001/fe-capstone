@@ -14,6 +14,7 @@ var uiConfig = {
     signInSuccessUrl: './app.html',
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
     tosUrl: './tos.html' //terms of service URL. required
 };
