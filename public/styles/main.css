@@ -5,11 +5,11 @@ h1 {
 
 html {
   font-family: "Roboto", helvetica, sans-serif;
-  background: url(/images/wall-of-text12.jpg) no-repeat; 
+  background: url(/images/wall-of-text22.jpg) no-repeat; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  /*background-size: cover;*/
+
 background-position: center center;
 background-attachment: fixed;
 background-size: cover;
@@ -58,7 +58,7 @@ background-size: cover;
   border-radius: 3px;
   background: transparent;
   margin: 0 auto;
-  color: white;
+  color: white
   font-size: large;
 }
 
