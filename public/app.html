@@ -36,20 +36,23 @@
             <label for="quote-text">Quote</label>
             <textarea id="quote-text" placeholder="600 characters maximum"
             rows="10" cols="70" required wrap="soft"></textarea>
-            <div class="quote-author">
+            <div id="quote-author-div">
               <label for="quote-author">Author</label>
               <input placeholder="Y. Truly" type="text" name="quote-author" id="quote-author" required maxlength=30/>
             </div>
             <button type="submit">Submit</button>
           </form>
-          <div class="error-quote-submit"><p>Quotes are limited to 600 characters. Please try again</p></div>
-          <div class="submit-success"><p>You're quote was successfully submitted. Thank you</p></div>
         </div>
+        <div id="error-quote-submit"><p>Quotes are limited to 600 characters. Please try again</p></div>
+        <div id="submit-success"><p>You're quote was successfully submitted. Thank you</p></div>
       </div>
     </div>
   </div>
 
-  <!--<div id="sign-in-status"></div>-->
+  <footer>
+    <a href="https://github.com/asw001/fe-capstone">About</a>
+  </footer>
+
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
   <script type="text/javascript" src="scripts/config.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>

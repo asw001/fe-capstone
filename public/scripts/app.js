@@ -1,19 +1,22 @@
 
+(function () {
+
 //DOM manipulation functions
 function hideQuoteErrorInput() {
-    $('div.error-quote-submit').hide();
+    $('#error-quote-submit').hide();
 }
 
 function showQuoteErrorInput() {
-    $('div.error-quote-submit').show();
+    $('#error-quote-submit').show();
 }
 
 function hideSubmitSuccess() {
-    $('div.submit-success').hide();
+    $('#submit-success').hide();
 }
 
 function showSubmitSuccess() {
-    $('div.submit-success').show();
+    $('#submit-success').show();
+    $('#submit-success').fadeOut(3000);
 }
 
 function showSubmitForm() {
@@ -42,7 +45,7 @@ function checkUserAuth() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             user.getIdToken().then(function(accessToken) {
-                document.getElementById('sign-in-status').textContent = 'Signed in';
+                //document.getElementById('sign-in-status').textContent = 'Signed in';
             });
         } else {
                 document.getElementById('sign-in-status').textContent = 'Not signed in';
@@ -87,7 +90,7 @@ function renderQuotes(renderConfig) { //renderConfig stored in config.js
 
 function doDisplayQuotes(db, renderConfig) {
     var ref = db.ref().child('quotes');
-    $('div#slideshow').empty(); //if we don't empty the parents div, duplicate child entries will be created
+    $('#slideshow').empty(); //if we don't empty the parents div, duplicate child entries will be created
 
     ref.once('value', function(snapshot) { //the once method creates a connection to db, then removes listener; this
         snapshot.forEach(function(childSnapshot) { //essentially disables the realtime capability of the DB
@@ -106,7 +109,7 @@ function handleSubmit() {
         event.stopPropagation();
         var quote = $(this).find('#quote-text').val();
         var author = $(this).find('#quote-author').val();
-        quote = quote.replace(/[\n\r]+/g, ' ');
+        quote = quote.replace(/[\n\r]+/g, ' '); //remove newline chars
         author = author.replace(/[\n\r]+/g, ' ');
 
         if (quote.length > 600) {
@@ -149,3 +152,4 @@ var db = initDB();
 doDisplayQuotes(db, renderConfig);
 doSlideShow();
 handleSubmit();
+}());

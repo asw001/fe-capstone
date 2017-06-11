@@ -39,7 +39,7 @@ html {
   font-size: large;
 }
 
-#form-access, .error-quote-submit  {
+#form-access, #error-quote-submit, #submit-success {
   text-align: center;
   font-size: large;
   color: #d3d3d3;
@@ -72,7 +72,7 @@ right: 0;
   font-size: large;
 }
 
-.quote-author {
+#quote-author-div {
   margin-top: 10px;
 }
 
@@ -96,20 +96,18 @@ button[type="submit"] {
   margin-top: 10px;
 }
 
-.hidden-error {
-display: none;
-visibility: hidden;
-}
-
-.quote-container {
-position: relative;
-}
-
-.signature {
+.container2 {
 position: absolute;
-margin-top: 30px;
+bottom: 80px;
+left: 0;
+right: 0;
 }
 
-#sign-in-status {
-  text-align: center;
+footer {
+position: absolute;
+bottom: 40px;
+left: 0;
+right: 0;
+text-align: left;
+color: #d3d3d3;
 }
