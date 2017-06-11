@@ -18,11 +18,18 @@
   <link rel="stylesheet" type="text/css" href="styles/main.css"/>
   <link rel="stylesheet" type="text/css" href="styles/grid.css"/>
   <body>
-    <div class="head">
-      <h1>Wall of Quotes</h1>
+    <div class="container1">
+      <header>
+        <h1>Wall of Quotes</h1>
+      </header> 
+    </div>
+    <div class="container2">   
+      <div id="firebaseui-auth-container"></div><!-- API displays Google sign-in here -->
+      
     </div>  
-    <div id="firebaseui-auth-container"></div><!-- API displays Google sign-in here -->
-    <div id="email-auth-container"></div>
+    <footer>
+      <a href="https://github.com/asw001/fe-capstone">About</a>
+    </footer>
     <script type="text/javascript" src="scripts/config.js"></script>
     <script type="text/javascript" src="scripts/index.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"?onload=doFireBaseInit" type="text/javascript"></script>

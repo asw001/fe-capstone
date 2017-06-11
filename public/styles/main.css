@@ -1,6 +1,5 @@
 h1 {
   text-align: center;
-  color: #d3d3d3;
 }
 
 div {
@@ -46,14 +45,14 @@ html {
 }
 
 .container1 {
-position: relative;
+  position: relative;
 }
 
 .container2 {
-position: absolute;
-bottom: 40px;
-left: 0;
-right: 0;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
 }
 
 #quote-submit {
@@ -97,17 +96,33 @@ button[type="submit"] {
 }
 
 .container2 {
-position: absolute;
-bottom: 80px;
-left: 0;
-right: 0;
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
 }
 
 footer {
-position: absolute;
-bottom: 40px;
-left: 0;
-right: 0;
-text-align: left;
-color: #d3d3d3;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  text-align: right;
+  color: #d3d3d3;
+  font-size: x-large;
+  padding-right: 20px;
 }
+
+a:link { 
+  color: #d3d3d3
+  }  /* unvisited links */
+
+a:visited { 
+  color: black
+    }  /* visited links   */
+a:hover { 
+  color: white;
+      }  /* user hovers     */
+a:active { 
+  color: #d3d3f1;
+}  /* active links    */

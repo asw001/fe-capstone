@@ -16,7 +16,7 @@ function hideSubmitSuccess() {
 
 function showSubmitSuccess() {
     $('#submit-success').show();
-    $('#submit-success').fadeOut(3000);
+    $('#submit-success').fadeOut(5000);
 }
 
 function showSubmitForm() {
@@ -37,22 +37,6 @@ function handleFormReveal() {
     showSubmitForm();
     hideFormAccess();
   });
-};
-
-//calls Firebase library to verify user auth
-//displays status on page, logs auth errors to console. https://github.com/firebase/firebaseui-web
-function checkUserAuth() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            user.getIdToken().then(function(accessToken) {
-                //document.getElementById('sign-in-status').textContent = 'Signed in';
-            });
-        } else {
-                document.getElementById('sign-in-status').textContent = 'Not signed in';
-        }
-    }, function(error) {
-        console.log(error);
-    });
 };
 
 //instantiates the database object
@@ -141,10 +125,6 @@ function doSlideShow() {
 
 
 firebase.initializeApp(taAppConfig);
-
-$(window).on('load', function() {
-    checkUserAuth();
-});
 
 hideSubmitForm();
 handleFormReveal();
