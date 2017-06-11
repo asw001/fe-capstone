@@ -1,6 +1,6 @@
 # Wall of Quotes
 
-[<img src="https://github.com/asw001/fe-capstone/blob/master/public/images/snap2.png">](https://github.com)
+![Wall of Quotes - Thinkful Capstone](https://github.com/asw001/fe-capstone/blob/master/public/images/snap2.png)
 
 # Table of Contents
 
