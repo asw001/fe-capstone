@@ -4,20 +4,18 @@ h1 {
 }
 
 div {
-
   margin: auto;
 }
 
 html {
   font-family: "Roboto", helvetica, sans-serif;
-  background: url(/images/wall-of-text23.jpg) no-repeat; 
+  background: url(/images/wall-of-text24.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-
-background-position: center center;
-background-attachment: fixed;
-background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #slideshow {
@@ -39,7 +37,6 @@ background-size: cover;
   bottom: 10px;
   color: #d3d3d3;
   font-size: large;
-
 }
 
 #form-access, .error-quote-submit  {
@@ -48,12 +45,18 @@ background-size: cover;
   color: #d3d3d3;
 }
 
-/*#form-access {
-  margin-left: 80px;
-}*/
+.container1 {
+position: relative;
+}
+
+.container2 {
+position: absolute;
+bottom: 40px;
+left: 0;
+right: 0;
+}
 
 #quote-submit {
- /* margin-left: 80px;*/
   margin-top: 30px;
   text-align: center;
   font-weight: 300;
