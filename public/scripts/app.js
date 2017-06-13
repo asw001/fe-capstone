@@ -109,7 +109,7 @@ function handleSubmit() {
         quote = quote.replace(/[\n\r]+/g, ' '); //remove newline chars
         author = author.replace(/[\n\r]+/g, ' ');
 
-        if (quote.length > 600) {
+        if (quote.length > 800) {
             showQuoteErrorInput();
         } else {
             writeUserData(quote, author, db);
