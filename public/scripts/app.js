@@ -10,10 +10,6 @@ function showQuoteErrorInput() {
     $('#error-quote-submit').show();
 }
 
-function hideSubmitSuccess() {
-    $('#submit-success').hide();
-}
-
 function showSubmitSuccess() {
     $('#submit-success').show();
     $('#submit-success').fadeOut(5000);
@@ -100,7 +96,6 @@ function doDisplayQuotes(db, renderConfig) {
 
 function handleSubmit() {
     hideQuoteErrorInput();
-    hideSubmitSuccess();
     $('#quote-form').on('submit', (function(event) {
         event.preventDefault();
         event.stopPropagation();
@@ -138,8 +133,6 @@ function doSlideShow() {
 
 
 firebase.initializeApp(taAppConfig);
-
-hideSubmitForm();
 handleFormReveal();
 var db = initDB();
 doDisplayQuotes(db, renderConfig);

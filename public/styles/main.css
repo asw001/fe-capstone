@@ -8,7 +8,7 @@ div {
 
 html {
   font-family: "Roboto", helvetica, sans-serif;
-  background: url(/images/wall-of-text24.jpg) no-repeat;
+  background: url(/images/wall-of-text24a.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -38,10 +38,14 @@ html {
   font-size: large;
 }
 
-#form-access, #error-quote-submit, #submit-success {
+#error-quote-submit, #submit-success, #form-access {
   text-align: center;
   font-size: large;
   color: #d3d3d3;
+}
+
+#error-quote-submit, #submit-success, #quote-submit {
+  display: none;
 }
 
 .container1 {
@@ -57,7 +61,6 @@ html {
 
 #quote-submit {
   margin-top: 30px;
-  text-align: center;
   font-weight: 300;
 }
 
@@ -126,3 +129,7 @@ a:hover {
 a:active { 
   color: #d3d3f1;
 }  /* active links    */
+
+.signature {
+  margin-top: 20px;
+}
